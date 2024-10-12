@@ -18,7 +18,7 @@ export const checkForAuthorizationHeader = (
 
   // Check if the authorization header is present
   if (!authorizationHeader) {
-    res.status(403).json({ message: "Authorization header required" })
+    res.status(401).json({ message: "Authorization header required" })
     return
   }
 

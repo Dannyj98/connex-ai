@@ -20,3 +20,5 @@ routes(app)
 app.listen(PORT, async () => {
   console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV} mode`)
 })
+
+export default app
