@@ -6,5 +6,5 @@ export const getServerTimeInEpochs = async (
   next: NextFunction
 ) => {
   const currentTime = Math.floor(Date.now() / 1000)
-  res.status(200).json({ currentTime })
+  res.status(200).json({ epoch: currentTime })
 }
