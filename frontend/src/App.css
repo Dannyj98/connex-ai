@@ -1,0 +1,36 @@
+* Ensure the body and html take up the full height */ html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.metrics-wrapper {
+  margin-left: 20px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/* Container to hold the two halves */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left and right halves */
+.left,
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optional: Different background colors for visual distinction */
+.left {
+  background-color: #f0f0f0;
+}
+
+.right {
+  background-color: #e0e0e0;
+}
