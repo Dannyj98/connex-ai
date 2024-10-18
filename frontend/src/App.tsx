@@ -5,11 +5,10 @@ import Time from "./components/Time"
 import Metrics from "./components/Metrics"
 
 import BaseApi from "./services/BaseApi"
-import { set } from "vue/types/umd.js"
 
 function App() {
   const [serverEpochTime, setServerEpochTime] = useState<number | null>(null)
-  const [serverMetrics, setServerMetrics] = useState<any | null>(null)
+  const [serverMetrics, setServerMetrics] = useState<string | null>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,12 +20,12 @@ function App() {
     }, 30000)
     const fetchTimeInEpochs = async () => {
       const baseApi = new BaseApi()
-      const epochTime = await baseApi.get<number>("/time")
+      const epochTime = await baseApi.get<any>("/time")
       setServerEpochTime(epochTime.data.epoch)
     }
     const fetchMetrics = async () => {
       const baseApi = new BaseApi()
-      const metricHtml = await baseApi.get<number>("/metrics")
+      const metricHtml = await baseApi.get<any>("/metrics")
       setServerMetrics(metricHtml.data)
     }
     fetchTimeInEpochs()

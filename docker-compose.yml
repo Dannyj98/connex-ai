@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - AUTH_SECRET=mysecrettoken
+      - NODE_ENV=development
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_BACKEND_BASE_API=http://localhost:3000/api
+      - VITE_AUTH_TOKEN=mysecrettoken
+    volumes:
+      - ./frontend:/app

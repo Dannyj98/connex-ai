@@ -1,5 +1,4 @@
 import React from "react"
-import style from "./Metrics.module.css"
 interface MetricsProps {
   metrics: string | null
 }
